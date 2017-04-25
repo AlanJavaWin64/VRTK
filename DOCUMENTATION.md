@@ -6241,7 +6241,7 @@ Finds the first  with a given name and an ancestor that has a specific component
 
 #### FindEvenInactiveComponents<T>/0
 
-  > `public static T[] FindEvenInactiveComponents<T>() where T : Object`
+  > `public static T[] FindEvenInactiveComponents<T>() where T : UnityEngine.Object`
 
   * Type Params
    * `T[]` - The component type to search for. Must be a subclass of .
@@ -6287,6 +6287,31 @@ The GenerateVRTKObjectName method is used to create a standard name string for a
    * `float` - The total GPU time utilized last frame as measured by the VR subsystem.
 
 The GetGPUTimeLastFrame retrieves the time spent by the GPU last frame, in seconds, as reported by the VR SDK.
+
+#### Vector2ShallowCompare/3
+
+  > `public static bool Vector2ShallowCompare(Vector2 vectorA, Vector2 vectorB, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 vectorA` - The Vector2 to compare against.
+   * `Vector2 vectorB` - The Vector2 to compare with
+   * `int compareFidelity` - The number of decimal places to use when doing the comparison on the float elements within the Vector2.
+  * Returns
+   * `bool` - Returns true if the given Vector2 objects match based on the given fidelity.
+
+The Vector2ShallowCompare method compares two given Vector2 objects based on the given fidelity, which is the equivalent of comparing rounded Vector2 elements to determine if the Vector2 elements are equal.
+
+#### NumberPercent/2
+
+  > `public static float NumberPercent(float value, float percent)`
+
+  * Parameters
+   * `float value` - The value to determine the percentage from
+   * `float percent` - The percentage to find within the given value.
+  * Returns
+   * `float` - A float containing the percentage value based on the given input.
+
+The NumberPercent method is used to determine the percentage of a given value.
 
 ---
 
@@ -7189,6 +7214,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
    * `Vector3` - A Vector3 containing the current angular velocity of the tracked object.
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
+
+#### IsTouchpadStatic/4
+
+  > `public abstract bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity);`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
 
 #### GetTouchpadAxisOnIndex/1
 
@@ -8210,6 +8248,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
 
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
+
 #### GetTouchpadAxisOnIndex/1
 
   > `public override Vector2 GetTouchpadAxisOnIndex(uint index)`
@@ -9223,6 +9274,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
    * `Vector3` - A Vector3 containing the current angular velocity of the tracked object.
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
+
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
 
 #### GetTouchpadAxisOnIndex/1
 
@@ -10246,6 +10310,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
 
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
+
 #### GetTouchpadAxisOnIndex/1
 
   > `public override Vector2 GetTouchpadAxisOnIndex(uint index)`
@@ -11267,6 +11344,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
    * `Vector3` - A Vector3 containing the current angular velocity of the tracked object.
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
+
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
 
 #### GetTouchpadAxisOnIndex/1
 
@@ -12300,6 +12390,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
 
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
+
 #### GetTouchpadAxisOnIndex/1
 
   > `public override Vector2 GetTouchpadAxisOnIndex(uint index)`
@@ -13320,6 +13423,19 @@ The GetVelocityOnIndex method is used to determine the current velocity of the t
    * `Vector3` - A Vector3 containing the current angular velocity of the tracked object.
 
 The GetAngularVelocityOnIndex method is used to determine the current angular velocity of the tracked object on the given index.
+
+#### IsTouchpadStatic/4
+
+  > `public override bool IsTouchpadStatic(bool isTouched, Vector2 currentAxisValues, Vector2 previousAxisValues, int compareFidelity)`
+
+  * Parameters
+   * `Vector2 currentAxisValues` -
+   * `Vector2 previousAxisValues` -
+   * `int compareFidelity` -
+  * Returns
+   * `bool` - Returns true if the touchpad is not currently being touched or moved.
+
+The IsTouchpadStatic method is used to determine if the touchpad is currently not being moved.
 
 #### GetTouchpadAxisOnIndex/1
 
