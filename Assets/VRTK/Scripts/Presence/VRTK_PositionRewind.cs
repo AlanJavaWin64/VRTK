@@ -56,12 +56,12 @@ namespace VRTK
 
             bodyPhysics = (bodyPhysics != null ? bodyPhysics : FindObjectOfType<VRTK_BodyPhysics>());
             headsetCollision = (headsetCollision != null ? headsetCollision : GetComponentInChildren<VRTK_HeadsetCollision>());
-            ManageHeadsetListeners(true);
+            ManageListeners(true);
         }
 
         protected virtual void OnDisable()
         {
-            ManageHeadsetListeners(false);
+            ManageListeners(false);
         }
 
         protected virtual void Update()
@@ -147,29 +147,53 @@ namespace VRTK
             }
         }
 
-        protected virtual void ManageHeadsetListeners(bool state)
+        protected virtual void ManageListeners(bool state)
         {
-            if (headsetCollision != null)
+
+            if (state)
             {
-                if (state)
+                if (headsetCollision != null)
                 {
-                    headsetCollision.HeadsetCollisionDetect += HeadsetCollision_HeadsetCollisionDetect;
-                    headsetCollision.HeadsetCollisionEnded += HeadsetCollision_HeadsetCollisionEnded;
+                    headsetCollision.HeadsetCollisionDetect += HeadsetCollisionDetect;
+                    headsetCollision.HeadsetCollisionEnded += HeadsetCollisionEnded;
                 }
-                else
+                if (bodyPhysics != null)
                 {
-                    headsetCollision.HeadsetCollisionDetect -= HeadsetCollision_HeadsetCollisionDetect;
-                    headsetCollision.HeadsetCollisionEnded -= HeadsetCollision_HeadsetCollisionEnded;
+                    bodyPhysics.StartColliding += StartColliding;
+                    bodyPhysics.StopColliding += StopColliding;
+                }
+            }
+            else
+            {
+                if (headsetCollision != null)
+                {
+                    headsetCollision.HeadsetCollisionDetect -= HeadsetCollisionDetect;
+                    headsetCollision.HeadsetCollisionEnded -= HeadsetCollisionEnded;
+                }
+                if (bodyPhysics != null)
+                {
+                    bodyPhysics.StartColliding -= StartColliding;
+                    bodyPhysics.StopColliding -= StopColliding;
                 }
             }
         }
 
-        protected virtual void HeadsetCollision_HeadsetCollisionDetect(object sender, HeadsetCollisionEventArgs e)
+        private void StartColliding(object sender, BodyPhysicsEventArgs e)
         {
             StartCollision();
         }
 
-        protected virtual void HeadsetCollision_HeadsetCollisionEnded(object sender, HeadsetCollisionEventArgs e)
+        private void StopColliding(object sender, BodyPhysicsEventArgs e)
+        {
+            EndCollision();
+        }
+
+        protected virtual void HeadsetCollisionDetect(object sender, HeadsetCollisionEventArgs e)
+        {
+            StartCollision();
+        }
+
+        protected virtual void HeadsetCollisionEnded(object sender, HeadsetCollisionEventArgs e)
         {
             EndCollision();
         }
